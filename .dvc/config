@@ -1,0 +1,5 @@
+[core]
+    remote = myremote
+['remote "myremote"']
+    url = ssh://trader@localhost/home/trader/dvc_storage
+    keyfile = /home/trader/.ssh/id_ed25519

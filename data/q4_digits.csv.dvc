@@ -1,0 +1,5 @@
+outs:
+- md5: 4fe17a3be6fb1e12128fe4896435042d
+  size: 495045
+  hash: md5
+  path: q4_digits.csv
