@@ -36,7 +36,7 @@ cd DA3408-Assignment1-Q4
 mamba env create -f environment.yml     # conda works too
 conda activate da3408-assignment1
 
-dvc checkout                            # gets data/q4_digits.csv
+dvc checkout                            # gets data/q4_digits.csv (needs the env active)
 ```
 
 `dvc checkout` works straight after cloning — no credentials and no server needed,
@@ -93,12 +93,18 @@ Reproduce it using only `git clone`, `git checkout`, `dvc checkout`,
 git clone https://github.com/Rinkesh-1612/DA3408-Assignment1-Q4.git
 cd DA3408-Assignment1-Q4
 git checkout partner-a-baseline
-dvc checkout
+
+# build the environment first, DVC is installed by it
 mamba env create -f environment.yml
 conda activate da3408-assignment1
+
+dvc checkout                    # now dvc exists, this restores the dataset
 export MLFLOW_TRACKING_URI=<your MLflow server>
 python src/q4_train_and_register.py
 ```
+
+Don't `apt install dvc`. The environment pins `dvc==3.67.1`, and a different version
+from the system package manager may not read this repo's config the same way.
 
 Then two things:
 
